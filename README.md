@@ -22,3 +22,7 @@ https://realpython.com/python-sets/
 For emoji library
 
 https://emoji-python.readthedocs.io/en/stable/
+
+For itertools:
+
+https://docs.python.org/3/library/itertools.html
