@@ -1,21 +1,21 @@
 genre_id,genre
-99,Documentary
-37,Western
-10752,War
-36,History
 10770,TV Movie
-18,Drama
+37,Western
+28,Action
 10751,Family
-878,Science Fiction
+10402,Music
 10769,Foreign
 10749,Romance
-27,Horror
 80,Crime
-35,Comedy
-28,Action
-12,Adventure
-9648,Mystery
-14,Fantasy
-16,Animation
-10402,Music
+36,History
 53,Thriller
+10752,War
+35,Comedy
+14,Fantasy
+12,Adventure
+878,Science Fiction
+18,Drama
+27,Horror
+99,Documentary
+16,Animation
+9648,Mystery
