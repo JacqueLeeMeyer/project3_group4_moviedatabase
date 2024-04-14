@@ -1,4 +1,5 @@
 ﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- Link to schema: https://app.quickdatabasediagrams.com/#/d/avuP3v
 -- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
 
 
@@ -25,7 +26,10 @@ CREATE TABLE "actor" (
 
 CREATE TABLE "credits_actor" (
     "movie_id" int   NOT NULL,
-    "actor_id" int   NOT NULL
+    "actor_id" int   NOT NULL,
+    CONSTRAINT "pk_credits_actor" PRIMARY KEY (
+        "movie_id","actor_id"
+     )
 );
 
 CREATE TABLE "directors" (
@@ -38,7 +42,10 @@ CREATE TABLE "directors" (
 
 CREATE TABLE "movieid_director_id" (
     "movie_id" int   NOT NULL,
-    "director_id" int   NOT NULL
+    "director_id" int   NOT NULL,
+    CONSTRAINT "pk_movieid_director_id" PRIMARY KEY (
+        "movie_id","director_id"
+     )
 );
 
 CREATE TABLE "emoji_genre" (
@@ -53,7 +60,10 @@ CREATE TABLE "emoji_genre" (
 
 CREATE TABLE "movieid_genre_ids" (
     "movie_id" int   NOT NULL,
-    "genre_id" int   NOT NULL
+    "genre_id" int   NOT NULL,
+    CONSTRAINT "pk_movieid_genre_ids" PRIMARY KEY (
+        "movie_id","genre_id"
+     )
 );
 
 CREATE TABLE "keywords" (
@@ -66,46 +76,33 @@ CREATE TABLE "keywords" (
 
 CREATE TABLE "movieids_kw" (
     "movie_id" int   NOT NULL,
-    "keyword_id" int   NOT NULL
+    "keyword_id" int   NOT NULL,
+    CONSTRAINT "pk_movieids_kw" PRIMARY KEY (
+        "movie_id","keyword_id"
+     )
 );
 
+ALTER TABLE "actor" ADD CONSTRAINT "fk_actor_actor_id" FOREIGN KEY("actor_id")
+REFERENCES "credits_actor" ("actor_id");
 
---ALTER TABLE "credits_actor" ADD CONSTRAINT "fk_credits_actor_movie_id" FOREIGN KEY("movie_id")
---REFERENCES "movies" ("movie_id");
-
-
---ALTER TABLE "actor" ADD CONSTRAINT "fk_actor_actor_id" FOREIGN KEY("actor_id")
---REFERENCES "credits_actor" ("actor_id");
-
-
-
-
-
---ALTER TABLE "movieid_director_id" ADD CONSTRAINT "fk_movieid_director_id_movie_id" FOREIGN KEY("movie_id")
---REFERENCES "movies" ("movie_id");
-
-
---ALTER TABLE "directors" ADD CONSTRAINT "fk_directors_director_id" FOREIGN KEY("director_id")
---REFERENCES "movieid_director_id" ("director_id");
-
-
-
-
-
-
-
-ALTER TABLE "movieids_kw" ADD CONSTRAINT "fk_movieids_kw_movie_id" FOREIGN KEY("movie_id")
+ALTER TABLE "credits_actor" ADD CONSTRAINT "fk_credits_actor_movie_id" FOREIGN KEY("movie_id")
 REFERENCES "movies" ("movie_id");
 
---ALTER TABLE "keywords" ADD CONSTRAINT "fk_keywords_keyword_id" FOREIGN KEY("keyword_id")
---REFERENCES "movieids_kw" ("keyword_id");
+ALTER TABLE "directors" ADD CONSTRAINT "fk_directors_director_id" FOREIGN KEY("director_id")
+REFERENCES "movieid_director_id" ("director_id");
 
+ALTER TABLE "movieid_director_id" ADD CONSTRAINT "fk_movieid_director_id_movie_id" FOREIGN KEY("movie_id")
+REFERENCES "movies" ("movie_id");
 
-
-
+ALTER TABLE "emoji_genre" ADD CONSTRAINT "fk_emoji_genre_genre_id" FOREIGN KEY("genre_id")
+REFERENCES "movieid_genre_ids" ("genre_id");
 
 ALTER TABLE "movieid_genre_ids" ADD CONSTRAINT "fk_movieid_genre_ids_movie_id" FOREIGN KEY("movie_id")
 REFERENCES "movies" ("movie_id");
 
---ALTER TABLE "emoji_genre" ADD CONSTRAINT "fk_emoji_genre_genre_id" FOREIGN KEY("genre_id")
---REFERENCES "movieid_genre_ids" ("genre_id");
+ALTER TABLE "keywords" ADD CONSTRAINT "fk_keywords_keyword_id" FOREIGN KEY("keyword_id")
+REFERENCES "movieids_kw" ("keyword_id");
+
+ALTER TABLE "movieids_kw" ADD CONSTRAINT "fk_movieids_kw_movie_id" FOREIGN KEY("movie_id")
+REFERENCES "movies" ("movie_id");
+
