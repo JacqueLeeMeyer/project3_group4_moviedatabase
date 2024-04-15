@@ -11,8 +11,8 @@ CREATE TABLE "movies" (
     "title" varchar(100)   NOT NULL,
     "revenue" bigint   NOT NULL,
     "tagline" varchar(300)   NOT NULL,
-    "average_vote" decimal(5)   NOT NULL,
-    "popularity" decimal(9)   NOT NULL,
+    "average_vote" numeric(5,1)   NOT NULL,
+    "popularity" decimal(9,6)   NOT NULL,
     "release_date" date   NOT NULL,
     CONSTRAINT "pk_movies" PRIMARY KEY (
         "movie_id"
