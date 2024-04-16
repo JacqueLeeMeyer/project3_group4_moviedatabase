@@ -26,3 +26,7 @@ https://emoji-python.readthedocs.io/en/stable/
 For itertools:
 
 https://docs.python.org/3/library/itertools.html
+
+For String Aggregate
+
+https://www.postgresqltutorial.com/postgresql-aggregate-functions/postgresql-string_agg-function/
