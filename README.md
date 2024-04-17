@@ -172,3 +172,140 @@ Again, we concatenated an initialized data frame ‘movieid_directorid_df’ wit
 
 Readme18.png
 ![readme18](https://github.com/mcjauregui/project3_group4_moviedatabase/assets/151464511/0e305afa-b949-43c9-a27a-93385b30962d)
+
+To allow users of our movie recommendation engine to search for films based on key words, we decided to include in our SQL database a ‘keywords’ field from the ‘en_movies’ dataset we’d created from the original ‘movies’ and ‘crew’ data files. 
+
+The for loop-json.loads() process once again helped us isolate (keyword) ‘id’ and (keyword) ‘name’ from the source data and update them to the ‘ids_keyword’ set we defined. Again, we exported the resulting data frame, ‘keywords_df’ to a .csv file for import into our SQL database. 
+
+Readme19.png
+![readme19](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/871106ab-fe0d-474f-aace-56e2dd8b0a42)
+
+Readme20.png
+![readme20](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/0bcf5554-4719-4532-a87d-81c7447c3381)
+
+With a query-by-keywords function to our movie recommendation engine, we needed a data frame, .csv file, database table that linked keywords with movie ids. We created this link using a similar process we used in creating the other linking data frames/.csv files/tables. Script is shown below.
+
+readme21.png
+![readme21](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/59c94588-a823-4986-8f09-0cc935383d91)
+
+readme22.png
+![readme22](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/60cbe85a-0592-43de-aa25-6a1d7a5e88dd)
+
+The final dataframe-to .csv-to table we need to create was for ‘movies’. First, we selected the columns we wanted from our ‘en_movies’ data set and assigned them to a dictionary, ‘data’. From the ‘data’ we made a data frame. Within that data frame we converted all ‘movie_id’ values to from string to integer type using .astype(int) and converted ‘release_date’ values from string to datetime type using the pd.to_datetime method. We also assigned null values to the ‘tagline’ and ‘release_date’ columns that were missing data. Finally, we exported ‘movies_df’ to a .csv file for further use. 
+
+readme23.png
+![readme23](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/990a9ec7-1f68-4c36-a50c-e782518ed8bc)
+
+readme24.png
+![readme24](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/343bf256-4bc3-462e-bce3-11a479679bd2)
+
+Load Phase Goals
+
+The goal of the Load Phase was to successfully import all 9 .csv files and create the required table joins in queries needed to demonstrate the movie recommendation engine. To create a humorous, interactive experience with the SQL database, the team also produced a simple but easy-to-use user interface with SQL Python Connector. This allows users to query from the SQL database in Python.
+
+We used the following query to create the tables we’d designed for the SQL database. 
+
+-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- Link to schema: https://app.quickdatabasediagrams.com/#/d/Hftcv0
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
+
+-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- Link to schema: https://app.quickdatabasediagrams.com/
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
+
+CREATE TABLE "movies" (
+    "movie_id" int   NOT NULL,
+    "title" varchar(100)   NOT NULL,
+    "revenue" bigint   NOT NULL,
+    "tagline" varchar(300)   NOT NULL,
+    "average_vote" numeric(5,1)   NOT NULL,
+    "popularity" decimal(9,6)   NOT NULL,
+    "release_date" date   NOT NULL,
+    CONSTRAINT "pk_movies" PRIMARY KEY (
+        "movie_id"
+     )
+);
+
+CREATE TABLE "actor" (
+    "actor_id" int   NOT NULL,
+    "actor" varchar(50)   NOT NULL,
+    CONSTRAINT "pk_actor" PRIMARY KEY (
+        "actor_id"
+     )
+);
+
+CREATE TABLE "credits_actor" (
+    "movie_id" int   NOT NULL,
+    "actor_id" int   NOT NULL
+);
+
+CREATE TABLE "directors" (
+    "director_id" int   NOT NULL,
+    "director" varchar(100)   NOT NULL,
+    CONSTRAINT "pk_directors" PRIMARY KEY (
+
+   "director_id"
+     )
+);
+
+CREATE TABLE "movieid_director_id" (
+    "movie_id" int   NOT NULL,
+    "director_id" int   NOT NULL
+);
+
+CREATE TABLE "emoji_genre" (
+    "genre_id" int   NOT NULL,
+    "genre" varchar(100)   NOT NULL,
+    "alias" varchar(100)   NOT NULL,
+    "genre_emoji" varchar(100)   NOT NULL,
+    CONSTRAINT "pk_emoji_genre" PRIMARY KEY (
+        "genre_id"
+     )
+);
+
+CREATE TABLE "movieid_genre_ids" (
+    "movie_id" int   NOT NULL,
+    "genre_id" int   NOT NULL
+);
+
+CREATE TABLE "keywords" (
+    "keyword_id" int   NOT NULL,
+    "keyword" varchar(50)   NOT NULL,
+    CONSTRAINT "pk_keywords" PRIMARY KEY (
+        "keyword_id"
+     )
+);
+
+CREATE TABLE "movieids_kw" (
+    "movie_id" int   NOT NULL,
+    "keyword_id" int   NOT NULL
+);
+
+ALTER TABLE "credits_actor" ADD CONSTRAINT "fk_credits_actor_movie_id" FOREIGN KEY("movie_id")
+REFERENCES "movies" ("movie_id");
+
+ALTER TABLE "credits_actor" ADD CONSTRAINT "fk_credits_actor_actor_id" FOREIGN KEY("actor_id")
+REFERENCES "actor" ("actor_id");
+
+ALTER TABLE "movieid_director_id" ADD CONSTRAINT "fk_movieid_director_id_movie_id" FOREIGN KEY("movie_id")
+REFERENCES "movies" ("movie_id");
+
+ALTER TABLE "movieid_director_id" ADD CONSTRAINT "fk_movieid_director_id_director_id" FOREIGN KEY("director_id")
+REFERENCES "directors" ("director_id");
+
+ALTER TABLE "movieid_genre_ids" ADD CONSTRAINT "fk_movieid_genre_ids_movie_id" FOREIGN KEY("movie_id")
+REFERENCES "movies" ("movie_id");
+
+ALTER TABLE "movieid_genre_ids" ADD CONSTRAINT "fk_movieid_genre_ids_genre_id" FOREIGN KEY("genre_id")
+REFERENCES "emoji_genre" ("genre_id");
+
+ALTER TABLE "movieids_kw" ADD CONSTRAINT "fk_movieids_kw_movie_id" FOREIGN KEY("movie_id")
+REFERENCES "movies" ("movie_id");
+
+ALTER TABLE "movieids_kw" ADD CONSTRAINT "fk_movieids_kw_keyword_id" FOREIGN KEY("keyword_id")
+REFERENCES "keywords" ("keyword_id");
+
+readme25.png
+![readme25](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/aa70fb80-ac1a-4315-961a-2b0a8016f47f)
+
+Insert link to Jacquie's demo video?
