@@ -24,6 +24,13 @@ https://docs.python.org/3/library/itertools.html
 For String Aggregate  
 https://www.postgresqltutorial.com/postgresql-aggregate-functions/postgresql-string_agg-function/  
 
+Pyodbc:  
+https://pypi.org/project/pyodbc/
+
+For User Inputs with pyodbc:  
+https://stackoverflow.com/questions/4279611/how-to-embed-a-video-into-github-readme-md/4279746#4279746
+
+
 This project uses SQL Python Connector to allow users to query from the SQL database in Python.
 
 Python libraries not already present can be loaded via GitBash. Load required libraries and modules by running ‘pip install -r requirements.txt’
