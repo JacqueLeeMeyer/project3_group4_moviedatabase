@@ -48,7 +48,7 @@ Files must be loaded in this order:
 8. movieids_kw  
 
 
-Project End Goal
+## Project End Goal
 Team Four proposed creating a movie recommendation engine to allow users to find films they might enjoy based on their preferences for the following:
 Director Name
 Cast Member Name
@@ -64,7 +64,7 @@ The workflow diagram below gives a sequential overview of the steps we took to l
 Extract_transform_workflow_diagram.png
 ![Extract_transform_workflow_diagram](https://github.com/mcjauregui/project3_group4_moviedatabase/assets/151464511/7e2a385b-d7e7-495d-9d59-256d680968e8)
 
-Extract Phase Goals  
+## Extract Phase Goals  
 The goal of the extract phase was to allow the team to get familiar with the content and structure of each of the two data files, and from there identify which fields we would need to create database tables necessary for the recommendation engine.   
 We could see from the files that we were working with lists of dictionaries in both cases.
   
@@ -94,7 +94,7 @@ Readme03.png
 Readme04.png
 ![readme04](https://github.com/mcjauregui/project3_group4_moviedatabase/assets/151464511/48f723de-0eab-44a7-922e-49bd39f40f8c)
 
-Transform Phase Goals  
+## Transform Phase Goals  
 The goal of the transform phase was to parse the imported data in ways that would allow us to create a series of data frames we’d export as .csv files to import into the tables of our SQL database. The schema below indicates the relationships we’d establish between our nine tables.   
 
 QuickDBDproject3.png
@@ -110,7 +110,6 @@ Readme05.png
 
 Readme06.png
 ![readme06](https://github.com/mcjauregui/project3_group4_moviedatabase/assets/151464511/ec32ffa7-4309-47eb-9393-2d1d57da53fe)
-
 
 Readme07.png
 ![readme07](https://github.com/mcjauregui/project3_group4_moviedatabase/assets/151464511/82c827ca-7e71-4084-a301-1e00f58c9be7)
@@ -139,7 +138,6 @@ Readme11.png
 
 Readme12.png
 ![readme12](https://github.com/mcjauregui/project3_group4_moviedatabase/assets/151464511/275a08be-8ba3-4a58-bc96-0108aff6d023)
-
 
 In creating a ‘credits_actor_df’ data frame by dropping actor ‘name’ from ‘credits_actor_name’, we produced the data needed to ultimately produce our future ‘credit_actor’ table needed to link our ‘actor’ and ‘movies’ table in the SQL database. We exported the ‘credits_actor_df’ data frame as a .csv for later use.   
 
@@ -199,9 +197,9 @@ readme23.png
 readme24.png
 ![readme24](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/343bf256-4bc3-462e-bce3-11a479679bd2)
 
-Load Phase Goals
+## Load Phase Goals
 
-The goal of the Load Phase was to successfully import all 9 .csv files and create the required table joins in queries needed to demonstrate the movie recommendation engine. To create a humorous, interactive experience with the SQL database, the team also produced a simple but easy-to-use user interface with SQL Python Connector. This allows users to query from the SQL database in Python.
+The goal of the Load Phase was to successfully import all 9 .csv files, create the tables into which we'd import the .csv files, and create the required table joins needed to demonstrate the movie recommendation engine. To create a humorous, interactive experience with the SQL database, the team also produced a simple but easy-to-use user interface with SQL Python Connector. This allows users to query from the SQL database in Python.
 
 We used the following query to create the tables we’d designed for the SQL database. 
 
