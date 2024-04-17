@@ -28,7 +28,7 @@ Pyodbc:
 https://pypi.org/project/pyodbc/
 
 For User Inputs with pyodbc:  
-https://stackoverflow.com/questions/37861319/pyodbc-cursor-execute-wont-insert-parameters-into-sql-string?noredirect=1#comment63185389_37861319
+https://stackoverflow.com/questions/9518148/pyodbc-how-to-perform-a-select-statement-using-a-variable-for-a-parameter
 
 
 This project uses SQL Python Connector to allow users to query from the SQL database in Python.
