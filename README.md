@@ -314,10 +314,12 @@ readme25.png
 ![readme25](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/aa70fb80-ac1a-4315-961a-2b0a8016f47f)
 
 
+Below is a short video showing the finished Movie Recommendation Engine we created:
+
+https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/149394665/67a8c342-e58a-4e37-a7d4-d24aa8d6b0ae
 
 
 
-https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/149394665/d5038881-0058-424d-b98d-07b7359e09cc
 
 
 
