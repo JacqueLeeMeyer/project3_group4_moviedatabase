@@ -313,4 +313,9 @@ REFERENCES "keywords" ("keyword_id");
 readme25.png
 ![readme25](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/aa70fb80-ac1a-4315-961a-2b0a8016f47f)
 
-Insert link to Jacquie's demo video?
+
+
+https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/149394665/cda3e360-5d44-42c0-8faf-47a8fba8a7e1
+
+
+
