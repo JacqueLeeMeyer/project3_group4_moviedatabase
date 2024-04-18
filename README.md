@@ -46,7 +46,12 @@ The workflow diagram below gives a sequential overview of the steps we took to l
 - resources: contains source CSV files and the required ODBC driver for postgreSQL
 
 ## Extract Phase Goals  
-Originally, the intent was to connect to a movie database API in order to collect real-time and current data. However, the OMDB film API's free API key only allowed for a user to perform 1000 queries per day. In order to get a sizable data set, our team would have needed to run thousands of queries as each film search is a single call. Our options were to either run our extraction code over several days or to create multiple accounts to collect a sufficient amount of data which we determined to be an abuse of a free open API key. Instead, we found a Kaggle dataset that a user retrieved from a TMDB movie API already loaded in a CSV file format containing 5000. The goal of the extract phase was to allow the team to get familiar with the content and structure of each of the two data files, and from there identify which fields we would need to create database tables necessary for the recommendation engine.   
+
+### Some Ethical Considerations When Finding Data
+Originally, the intent was to connect to a movie database API in order to collect real-time and current data. However, the OMDB film API's free API key only allowed for a user to perform 1000 queries per day. In order to get a sizable data set, our team would have needed to run thousands of queries as each film search is a single call. Our options were to either run our extraction code over several days or to create multiple accounts to collect a sufficient amount of data which we determined to be an abuse of a free open API key. Instead, we found a Kaggle dataset that a user retrieved from a TMDB movie API already loaded in a CSV file format containing 5000. Notably, the creator of the Kaggle data source originally used IMDB's API but had switched to TMDB's API instead as their publishing of the dataset using IMDB had been found to violate IMDB's usage policy. These issues highlight the responsibility of a data engineer to follow policies of an API's publisher.
+
+### Extraction Steps
+The goal of the extract phase was to allow the team to get familiar with the content and structure of each of the two data files, and from there identify which fields we would need to create database tables necessary for the recommendation engine.   
 We could see from the files that we were working with lists of dictionaries in both cases.
 
 Single record from tmdb_5000_movies.csv file containing information on each film:  
@@ -299,7 +304,7 @@ Import Files into Tables, in this order:
 ![readme25](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/aa70fb80-ac1a-4315-961a-2b0a8016f47f)
 
 ## Running the movie recommendation engine
-Steps to interact withe the movie recommendation engine:
+Steps to interact with the movie recommendation engine:
 1. (If necessary) Go to the Resources folder and locate the psqlodbc_16_00_0000-x64 folder. Within the folder is an installer file called psqlodbc_x64. Run the installer. 
 2. Open up VS Code and the folder containing the obdc_user_input.ipynb files. 
 3. Run the first two blocks of code to import pyodbc and pandas, and connect to the Postgres SQL database.
@@ -315,7 +320,9 @@ Below is a short video showing the finished Movie Recommendation Engine we creat
 
 https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/149394665/67a8c342-e58a-4e37-a7d4-d24aa8d6b0ae
 
+## Future Improvements
 
+The first main improvement possible for this project is to retrieve data from a live API instead of a Kaggle dataset. Using a paid API key makes it possible to build a more repeatable Python script to periodically query the API and update our SQL database to keep it up to date with new films. The other main improvement could be with the movie recommendation engine by building a standalone application that leverages ODBC or another database data retrieval method to give a list of film results in the form of a CSV or visualization tool such as Power BI. However, our team felt that this went beyond the scope of our project and built a Jupyter notebook to take user inputs and use it to run SQL queries.
 
 ## Sources:  
 
