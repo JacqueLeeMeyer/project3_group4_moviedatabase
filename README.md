@@ -42,8 +42,8 @@ json
 itertools  
 emoji  
 
-.CSV files to import into pgAdmin, located in csv_outputs folder  
-Files must be loaded in this order:  
+The Transform Phase will product 9 .CSV files to import into pgAdmin, located in csv_outputs folder.  
+Files must be loaded into pgAdmin this order:  
 1. actor  
 2. directors  
 3. emoji_genre  
@@ -57,9 +57,10 @@ Files must be loaded in this order:
 
 ## Project End Goal
 Team Four proposed creating a movie recommendation engine to allow users to find films they might enjoy based on their preferences for the following:
+Movie Name
 Director Name
-Cast Member Name
-Decade of Release
+Actor Name
+Keyword
 Genre
 
 The engine would return the top 10 films, in descending order of vote count, that contain similar values as those the user input (i.e., director, actor, genre). 
@@ -309,6 +310,29 @@ REFERENCES "movies" ("movie_id");
 
 ALTER TABLE "movieids_kw" ADD CONSTRAINT "fk_movieids_kw_keyword_id" FOREIGN KEY("keyword_id")
 REFERENCES "keywords" ("keyword_id");
+
+Import Files into Tables, in this order:
+1. actor  
+2. directors  
+3. emoji_genre  
+4. keywords  
+5. movies  
+6. credits_actor  
+7. movieid_director_id  
+8. movieid_genre_ids  
+9. movieids_kw 
+
+## Running the movie recommendation engine
+Steps to interact withe the movie recommendation engine, 
+1. (If necessary) Go to the Resources folder and locate the psqlodbc_16_00_0000-x64 folder. Within the folder is an installer file called psqlodbc_x64. Run the installer. 
+2. Open up VS Code and the folder containing the obdc_user_input.ipynb files. 
+3. Run the first two blocks of code to import pyodbc and pandas, and connect to the Postgres SQL database. 
+Readme26.png
+![readme26](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/0781bdd7-1b34-4054-8ab9-79b80399c71b)
+
+
+
+
 
 readme25.png
 ![readme25](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/aa70fb80-ac1a-4315-961a-2b0a8016f47f)
