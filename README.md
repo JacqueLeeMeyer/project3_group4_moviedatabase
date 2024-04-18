@@ -322,21 +322,20 @@ Import Files into Tables, in this order:
 8. movieid_genre_ids  
 9. movieids_kw 
 
+readme25.png
+![readme25](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/aa70fb80-ac1a-4315-961a-2b0a8016f47f)
+
 ## Running the movie recommendation engine
 Steps to interact withe the movie recommendation engine:
 1. (If necessary) Go to the Resources folder and locate the psqlodbc_16_00_0000-x64 folder. Within the folder is an installer file called psqlodbc_x64. Run the installer. 
 2. Open up VS Code and the folder containing the obdc_user_input.ipynb files. 
 3. Run the first two blocks of code to import pyodbc and pandas, and connect to the Postgres SQL database.
+4. Run the Actor, Genre, Director, Keyword, and Keyword (LIKE) blocks one by one.
    
 Readme26.png
 ![readme26](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/0781bdd7-1b34-4054-8ab9-79b80399c71b)
 
-Run the Actor, Genre, Director, Keyword, and Keyword (LIKE) blocks one by one. 
 ![readme27](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/b6c69828-b4ef-49f7-aad5-677018d78c7e)
-
-
-readme25.png
-![readme25](https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/151464511/aa70fb80-ac1a-4315-961a-2b0a8016f47f)
 
 
 Below is a short video showing the finished Movie Recommendation Engine we created:
