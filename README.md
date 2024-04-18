@@ -24,7 +24,7 @@ Team Four proposed creating a movie recommendation engine to allow users to find
 
 The engine returns the top 10 films, in descending order of vote count, that contain the user input (i.e., director, actor, genre). 
 
-This project focused on the Extract, Transform, Load processes rather than data visualization. As such, the user interface for the recommendation engine is a basic python notebook which connects to the Postgress SQL. 
+This project focused on the Extract, Transform, Load processes rather than data visualization. As such, the user interface for the recommendation engine is a basic python notebook which connects to the PostgresSQL. 
 
 The workflow diagram below gives a sequential overview of the steps we took to load and transform the data that would eventually become the .csv files (in red) we’d use to create our postgreSQL tables.   
 
