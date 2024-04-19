@@ -322,7 +322,7 @@ https://github.com/JacqueLeeMeyer/project3_group4_moviedatabase/assets/149394665
 
 ## Future Improvements
 
-The first main improvement possible for this project is to retrieve data from a live API instead of a Kaggle dataset. Using a paid API key makes it possible to build a more repeatable Python script to periodically query the API and update our SQL database to keep it up to date with new films. The other main improvement could be with the movie recommendation engine by building a standalone application that leverages ODBC or another database data retrieval method to give a list of film results in the form of a CSV or visualization tool such as Power BI. However, our team felt that this went beyond the scope of our project and built a Jupyter notebook to take user inputs and use it to run SQL queries.
+The first main improvement possible for this project is to retrieve data from a live API instead of a Kaggle dataset. Using a paid API key makes it possible to build a more repeatable Python script to periodically query the API and update our SQL database to keep it up to date with new films. Another improvement could be with the movie recommendation engine by building a standalone application that leverages ODBC or another database data retrieval method to give a list of film results in the form of a CSV or visualization tool such as Power BI. However, our team felt that this went beyond the scope of our project and built a Jupyter notebook to take user inputs and use it to run SQL queries. The queries we put together were fairly simple and only took a single entry in a single field for actor, director, genre, or keyword. There is more room for performing multiple queries and to use other film information to query for data.
 
 ## Sources:  
 
